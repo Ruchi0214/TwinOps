@@ -1,0 +1,6 @@
+Timestamp,Device,Power_Usage_kWh,Voltage,Current
+2025-10-01 10:00:00,Smart_Meter_1,5.2,230,22.6
+2025-10-01 11:00:00,Smart_Meter_1,5.4,231,22.8
+2025-10-01 12:00:00,Smart_Meter_1,5.1,232,22.1
+2025-10-01 13:00:00,Smart_Meter_2,6.8,228,29.8
+2025-10-01 14:00:00,Smart_Meter_2,7.0,229,30.6
