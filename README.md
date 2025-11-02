@@ -8,7 +8,7 @@
 
 |------------|--------------|------|
 
-| 🎨 Figma Prototype | Interactive AI-designed frontend | \[View Prototype](https://www.figma.com/proto/TwinOpsApp12345/Live-Prototype?node-id=1-2) |
+| 🎨 Figma Prototype | Interactive AI-designed frontend | \[View Prototype](https://code-fawn-67065059.figma.site/) |
 
 | ⚙️ Backend API (FastAPI + EC2) | Cloud-hosted FastAPI backend on AWS EC2 | \[Live API](http://ec2-18-216-213-230.us-east-2.compute.amazonaws.com:8000/) |
 
