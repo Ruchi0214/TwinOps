@@ -119,35 +119,34 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# ==============================================
-# 🌐 TwinOps.AI - Environment Configuration
-# ==============================================
+# 🌐 TwinOps.AI Environment Configuration
+# ======================================
 
-# ---- AWS CONFIGURATION ----
+# ---- AWS ----
 AWS_REGION=us-east-1
 TWINOPS_S3_BUCKET=twinops-logs-ruchi123
 TWINOPS_FRONTEND_BUCKET=twinops-frontend-ruchi123
 
-# ---- BLOCKCHAIN CONFIGURATION ----
+# ---- BLOCKCHAIN ----
 POLYGON_RPC=https://polygon-mumbai.infura.io/v3/3a9xYzYourInfuraKeyHere
 WALLET_PRIVATE_KEY=0x<YOUR_PRIVATE_KEY_DO_NOT_PUSH>
 CONTRACT_ADDRESS=0xAbCdEf1234567890abcdef1234567890abcdef12
 CONTRACT_ABI_PATH=backend/abi.json
 
-# ---- DATA PATHS ----
+# ---- DATA ----
 TECH_CSV=data/technicians.csv
 TASK_CSV=data/tasks.csv
 
-# ---- OPTIONAL AI / LLM CONFIG ----
-OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>     # optional, only if agent uses OpenAI
-GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>     # optional, only if agent uses Gemini
+# ---- OPTIONAL AI / LLM ----
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>     # optional
+GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>     # optional
 
-# ==============================================
-# ⚠️ IMPORTANT NOTES:
-# 1️⃣ Do NOT commit your real `.env` file.
-# 2️⃣ Keep your private keys (wallet, API) local only.
-# 3️⃣ This `.env.example` is safe to upload publicly.
-# ==============================================
+# ======================================
+# ⚠️ NOTES:
+# - Do NOT commit your real .env file.
+# - Keep private keys & API keys local.
+# - This .env.example is safe for public repos.
+# ======================================
 
 
 ###
@@ -166,4 +165,5 @@ source .venv/bin/activate
 uvicorn app:app --host 0.0.0.0 --port 8000
 
 #🪣 S3 (Frontend + Data)
-
+aws s3 mb s3://twinops-frontend-name --region us-east-2
+aws s3 sync frontend/build/ s3://twinops-frontend-name --acl public-read
