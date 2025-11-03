@@ -1,7 +1,8 @@
 # 🌐 TwinOps.AI  
 ### Smart Technician Assignment with AI + AWS + Blockchain Audit  
 
-> **Tagline:** Automating MSP operations with intelligent technician dispatch and verifiable blockchain audit trails.  
+> **Tagline:** Smarter Technicians, Faster Resolutions, Trusted Operations.
+Automating MSP operations with intelligent technician dispatch and verifiable blockchain audit trails.  
 > Built for rapid, reliable, and transparent field operations.
 
 ---
@@ -24,32 +25,41 @@ All assignments are **logged to AWS S3** and **verified on Polygon blockchain**,
 ---
 
 ## 🧩 Architecture              ┌
-*
-                   ┌───────────────────────────────┐
-                   │         👩‍💻  User UI          │
-                   │  (Figma Make / React Frontend) │
-                   └──────────────┬────────────────┘
-                                  │
-                                  ▼
-                   ┌───────────────────────────────┐
-                   │   ⚙️ FastAPI Backend (EC2)    │
-                   │  AI Agent + API + Logic Layer │
-                   └──────────────┬────────────────┘
-                                  │
-   ┌──────────────────────────────┼──────────────────────────────┐
-   │                              │                              │
-   ▼                              ▼                              ▼
-┌───────────────────┐ ┌────────────────────┐ ┌─────────────────────┐
-│ ☁️ AWS S3         │ │ 🔗 Blockchain     │ │ 🤖 AI /LLM Agent   │
-│ Dataset + Logs    │ │ Polygon (Mumbai)   │ │ Gemini          API │
-│ technicians.csv │ │  Task Audit Trails   │ │ Smart Assignment    │
-└───────────────────┘ └────────────────────┘ └─────────────────────┘
-      │
-                                  ▼
-                   ┌───────────────────────────────┐
-                   │       📊 Output / Logs        │
-                   │    S3 Log + Blockchain TX     │
-                   └───────────────────────────────┘
+*TwinOps Web App (Next.js + React)
+        ↓
+FastAPI / Node.js Backend (EC2)
+        ↓
+Amazon Bedrock Agent (Gemini + LangChain + PyTorch logic)
+        ↓
+ ┌──────────────┬──────────────┬──────────────┐
+ | Task Agent   | Audit Agent  | Support Agent|
+ | (Bedrock)    | (S3 + Chain) | (Gemini     )|
+ └──────────────┴──────────────┴──────────────┘
+        ↓
+AWS S3 (Logs & Data) + PostgreSQL/MongoDB
+        ↓
+Polygon Blockchain (Immutable Audit Trail)
+        ↓
+AWS CloudWatch (Monitoring + Observability)
+
+---
+🧠 **Flow Summary:**
+1. **User** interacts with the **TwinOps.AI frontend** (Figma Make or React hosted on S3).  
+2. The **frontend calls FastAPI** (deployed on AWS EC2) via REST API.  
+3. **FastAPI Agent** processes data and:
+   - Fetches & logs tasks to **AWS S3**
+   - Sends audit record to **Polygon Blockchain**
+   - Returns technician + TX info to the UI  
+4. **Results** are visualized instantly — with blockchain proof and stored S3 logs.
+
+---
+```markdown
+![AWS](https://img.shields.io/badge/Cloud-AWS-orange?style=for-the-badge&logo=amazonaws)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-brightgreen?style=for-the-badge&logo=fastapi)
+![Polygon](https://img.shields.io/badge/Blockchain-Polygon-purple?style=for-the-badge&logo=polygon)
+![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
+![Figma](https://img.shields.io/badge/Design-Figma-pink?style=for-the-badge&logo=figma)
+```
 ---
 
 ## 🧰 Tech Stack
