@@ -87,28 +87,33 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# 🌐 TwinOps.AI Environment Configuration
-# ======================================
-
-# ---- AWS ----
+```
+# 🌐 TwinOps.AI — Environment Configuration
+# -----------------------------------------
+# Rename this file to ".env" and fill in your actual credentials.
+```
+```# ---- AWS CONFIG ----```
 AWS_REGION=us-east-1
 TWINOPS_S3_BUCKET=twinops-logs-ruchi123
 TWINOPS_FRONTEND_BUCKET=twinops-frontend-ruchi123
 
-# ---- DATA ----
+```# ---- DATA CONFIG ----```
 TECH_CSV=data/technicians.csv
 TASK_CSV=data/tasks.csv
 
-# ---- OPTIONAL AI / LLM ----
-OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>    
-GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>     
+```# ---- BLOCKCHAIN CONFIG ----```
+POLYGON_RPC=https://polygon-mumbai.infura.io/v3/<INFURA_KEY>
+WALLET_PRIVATE_KEY=0x<YOUR_PRIVATE_KEY>
+CONTRACT_ADDRESS=0x<DEPLOYED_CONTRACT>
+CONTRACT_ABI_PATH=backend/abi.json
 
-# ======================================
-# ⚠️ NOTES:
-# - Do NOT commit your real .env file.
-# - Keep private keys & API keys local.
-# - This .env.example is safe for public repos.
-# ======================================
+```# ---- AI / LLM KEYS ----```
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>
+
+# ---- FRONTEND / BACKEND ----
+BACKEND_URL=http://<your-ec2-ip>:8000
+FRONTEND_URL=http://twinops-frontend-ruchi123.s3-website-us-east-1.amazonaws.com
 
 
 ###
