@@ -1,40 +1,26 @@
-\# 🚀 TwinOps AI — Real-time Cloud Intelligence Platform
+# 🌐 TwinOps.AI  
+### Smart Technician Assignment with AI + AWS + Blockchain Audit  
 
-
-
-\### 🌍 Live Links
-
-| Component | Description | Link |
-
-|------------|--------------|------|
-
-| 🎨 Figma Prototype | Interactive AI-designed frontend | \[View Prototype](https://code-fawn-67065059.figma.site/) |
-
-| ⚙️ Backend API (FastAPI + EC2) | Cloud-hosted FastAPI backend on AWS EC2 | \[Live API](http://ec2-18-216-213-230.us-east-2.compute.amazonaws.com:8000/) |
-
-| 💾 Dataset (AWS S3) | Public cloud datasets for analysis | \[View All Datasets](https://twinops-storage.s3.ap-south-1.amazonaws.com/data/) |
-
-| 🧭 GitHub Repository | Source code for backend, frontend, and data | \[TwinOps on GitHub](https://github.com/Ruchi0214/TwinOps) |
-
-
+> **Tagline:** Automating MSP operations with intelligent technician dispatch and verifiable blockchain audit trails.  
+> Built for rapid, reliable, and transparent field operations.
 
 ---
 
-
-
-\## 💡 About the Project
-
-\*\*TwinOps AI\*\* is an intelligent, cloud-powered data platform integrating \*\*Figma-based design\*\*, \*\*FastAPI backend\*\*, \*\*AWS infrastructure\*\*, and \*\*blockchain-ready analytics\*\*.  
-
-It enables seamless real-time data uploads, storage, and decentralized logging for AI and IoT-driven operations.
-
-
+## 🚀 Overview
+TwinOps.AI is an **AI-powered operations assistant** that assigns the best-suited technician to each service task based on skill, availability, and efficiency.  
+All assignments are **logged to AWS S3** and **verified on Polygon blockchain**, ensuring transparency and trust.
 
 ---
 
+## 🧠 Core Features
+| Feature | Description |
+|----------|--------------|
+| 🤖 **AI Agent** | Intelligent matching between task requirements and technician skills. |
+| ☁️ **AWS Integration** | EC2-hosted FastAPI backend and S3 data storage for technician/task logs. |
+| 🔗 **Blockchain Audit** | Every assignment emits an on-chain event on Polygon Mumbai testnet. |
+| 💻 **Figma / React Frontend** | Clean dashboard to assign tasks and view blockchain TX links. |
+| 📊 **Data-Driven Insights** | Technician efficiency analytics and historical logs stored on S3. |
 
+---
 
-\## 🧩 System Architecture
-
-
-
+## 🧩 Architecture
