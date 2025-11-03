@@ -189,7 +189,7 @@ TwinOps/
 ## 👥 Team
 | Role | Member |
 |------|---------|
-| 🧠 Project Lead | **Tambadi Ruchika ** |
+| 🧠 Project Lead | *Tambadi Ruchika * |
 | 💻 Developers | Tejas Nayak | | Tambadi Thrideep |
 | 🤝 Mentorship | SuperOps Hackathon Support   • AWS Cloud Builders | 
 
