@@ -140,3 +140,64 @@ POLYGON_RPC=https://polygon-mumbai.infura.io/v3/3a9xYzYourInfuraKeyHere
 WALLET_PRIVATE_KEY=0x<YOUR_PRIVATE_KEY_DO_NOT_PUSH>
 CONTRACT_ADDRESS=0xAbCdEf1234567890abcdef1234567890abcdef12
 CONTRACT_ABI_PATH=backend/abi.json
+
+## 📸 Demo
+🎥 Demo Video: https://loom.com/your-demo-link
+🖥️ Live Frontend: http://twinops-frontend-name.s3-website-us-east-2.amazonaws.com
+📊 Blockchain TX Example: https://mumbai.polygonscan.com/tx/<your-tx-hash>
+
+## 🪶 Sample API Response
+{
+  "task": "Server down in rack 3",
+  "skill": "Network",
+  "result": {
+    "assigned": "Alice Johnson",
+    "skill": "Network",
+    "eff": 92
+  },
+  "s3_key": "logs/Server_down_1730577438.json",
+  "tx": "0xabc1234..."
+}
+
+## 🧾 Dataset
+| File | Purpose |
+|------|----------|
+| technicians.csv | Master list ... |
+| tasks.csv | Incoming service ... |
+
+## 🧱 Folder Structure
+TwinOps/
+ ├── backend/
+ │   ├── app.py
+ │   ├── abi.json
+ │   └── .env.example
+ ├── data/
+ │   ├── technicians.csv
+ │   └── tasks.csv
+ ├── frontend/
+ │   └── src/
+ ├── architecture.png
+ └── README.md
+
+ ## 📈 Future Roadmap
+1. 🤝 Multi-Agent Collaboration (Gemini + LangChain)
+2. 🧩 Predictive Task Analytics (ML Regression)
+3. 🔐 Decentralized Credential Verification for Technicians
+4. 📱 Mobile Dashboard + Notifications
+5. ☁️ AWS Bedrock Migration for scalable LLMs
+
+## 👥 Team
+| Role | Member |
+|------|---------|
+| 🧠 Project Lead | **Tambadi Ruchika ** |
+| 💻 Developers | Tejas Nayak | |Tambadi Thrideep|
+| 🤝 Mentorship | SuperOps Hackathon Support   • AWS Cloud Builders | 
+
+## 💬 Acknowledgements
+• AWS Activate Program
+• Polygon Technology (Mumbai Testnet)
+• Hackathon Organizers and Jury
+• OpenAI, LangChain, and FastAPI communities
+
+## 📜 License
+MIT License © 2025 TwinOps.AI Team
