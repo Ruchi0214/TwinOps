@@ -24,3 +24,40 @@ All assignments are **logged to AWS S3** and **verified on Polygon blockchain**,
 ---
 
 ## 🧩 Architecture
+TwinOps Web App (Next.js + React)
+        ↓
+FastAPI Backend (EC2)
+        ↓
+Amazon Bedrock Agent (Gemini + LangChain + PyTorch logic)
+        ↓
+ ┌──────────────────────────────┬──────────────────────────────┬──────────────────────────────┐
+ | 🧠 Task Agent                | 🔒 Audit Agent               | 💬 Support Agent               |                         
+ | (Bedrock)                    | (S3 + Polygon Blockchain)    |          (Gemini )           |
+ └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
+        ↓
+AWS S3 (Logs & Data) + PostgreSQL / MongoDB (Persistent Storage)
+        ↓
+Polygon Blockchain (Immutable Audit Trail & Smart Contract Logging)
+        ↓
+AWS CloudWatch (Monitoring + Observability Dashboard)
+
+
+*Cloud-native, event-driven, and modular.*
+
+---
+
+## 🧰 Tech Stack
+**Frontend:** Figma Make / React + Tailwind CSS  
+**Backend:** Python • FastAPI • LangChain • boto3  
+**Blockchain:** Solidity • web3.py • Polygon Mumbai  
+**Cloud:** AWS EC2 • S3 • IAM  
+**Tools:** GitHub • Canva • Figma • Loom
+
+---
+## ⚙️ Setup & Run Locally
+
+### 1️⃣ Clone Repository
+```git clone https://github.com/Ruchi0214/TwinOps.git
+cd TwinOps/backend
+
+2️⃣ Create Python Environment
