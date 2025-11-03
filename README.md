@@ -25,6 +25,8 @@ All assignments are **logged to AWS S3** and **verified on Polygon blockchain**,
 ---
 
 ## 🧩 Architecture    
+<p align="center"><b>⚙️ System Architecture</b></p>
+```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                               🌐 TwinOps.AI                                  │
 │             Smart Technician Assignment with AI + Blockchain Audit           │
@@ -77,7 +79,8 @@ All assignments are **logged to AWS S3** and **verified on Polygon blockchain**,
         │   • Real-time logs, metrics, and system health             │
         └────────────────────────────────────────────────────────────┘
 
-
+```
+```
 ---
 🧠 **Flow Summary:**
 1. Frontend (Next.js + React) — User submits task request.
