@@ -24,34 +24,72 @@ All assignments are **logged to AWS S3** and **verified on Polygon blockchain**,
 
 ---
 
-## 🧩 Architecture              ┌
-*TwinOps Web App (Next.js + React)
-        ↓
-FastAPI / Node.js Backend (EC2)
-        ↓
-Amazon Bedrock Agent (Gemini + LangChain + PyTorch logic)
-        ↓
- ┌──────────────┬──────────────┬──────────────┐
- | Task Agent   | Audit Agent  | Support Agent|
- | (Bedrock)    | (S3 + Chain) | (Gemini     )|
- └──────────────┴──────────────┴──────────────┘
-        ↓
-AWS S3 (Logs & Data) + PostgreSQL/MongoDB
-        ↓
-Polygon Blockchain (Immutable Audit Trail)
-        ↓
-AWS CloudWatch (Monitoring + Observability)
+## 🧩 Architecture    
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                               🌐 TwinOps.AI                                  │
+│             Smart Technician Assignment with AI + Blockchain Audit           │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                ▼
+                  ┌────────────────────────────────┐
+                  │     TwinOps Web App (Next.js + React)     │
+                  │  • Deployed on AWS S3 / Amplify           │
+                  │  • User dashboard for task assignment      │
+                  └────────────────────────────────┘
+                                │
+                                ▼
+                  ┌────────────────────────────────┐
+                  │     FastAPI / Node.js Backend (EC2)       │
+                  │  • API Gateway & Business Logic            │
+                  │  • Handles user requests + AI inference    │
+                  └────────────────────────────────┘
+                                │
+                                ▼
+                  ┌────────────────────────────────┐
+                  │ Amazon Bedrock Agent Layer      │
+                  │  (Gemini + LangChain + PyTorch) │
+                  └────────────────────────────────┘
+                                │
+                                ▼
+        ┌────────────────────────────────────────────────────────────┐
+        │                         Agents                             │
+        │ ┌──────────────┬──────────────┬──────────────┐              │
+        │ │  Task Agent  │  Audit Agent │ Support Agent│              │
+        │ │ (Bedrock)    │ (S3 + Chain) │ (Gemini)     │              │
+        │ └──────────────┴──────────────┴──────────────┘              │
+        └────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+        ┌────────────────────────────────────────────────────────────┐
+        │       AWS S3 (Logs & Data)  +  PostgreSQL / MongoDB         │
+        │   • Task metadata, logs, model results                      │
+        └────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+        ┌────────────────────────────────────────────────────────────┐
+        │           🧱 Polygon Blockchain (Immutable Audit Trail)     │
+        │   • Smart Contract: TwinOpsAudit.sol                        │
+        │   • Records task→technician assignments immutably           │
+        └────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+        ┌────────────────────────────────────────────────────────────┐
+        │      📊 AWS CloudWatch (Monitoring + Observability)        │
+        │   • Real-time logs, metrics, and system health             │
+        └────────────────────────────────────────────────────────────┘
+
 
 ---
 🧠 **Flow Summary:**
-1. **User** interacts with the **TwinOps.AI frontend** (Figma Make or React hosted on S3).  
-2. The **frontend calls FastAPI** (deployed on AWS EC2) via REST API.  
-3. **FastAPI Agent** processes data and:
-   - Fetches & logs tasks to **AWS S3**
-   - Sends audit record to **Polygon Blockchain**
-   - Returns technician + TX info to the UI  
-4. **Results** are visualized instantly — with blockchain proof and stored S3 logs.
-
+1. Frontend (Next.js + React) — User submits task request.
+2. Backend (FastAPI / Node.js on EC2) — Processes request, triggers AI pipeline.
+3. Bedrock Agent Layer — Combines Gemini + LangChain + PyTorch for smart matching.
+4. Agents:
+   🧠 Task Agent → Chooses best technician.
+   🧾 Audit Agent → Logs assignment to S3 + Polygon Blockchain.
+   💬 Support Agent → Provides AI insights or chat summaries.
+5. Data Layer (S3 + PostgreSQL/MongoDB) — Stores task data, technician efficiency logs.
+6. Blockchain Layer (Polygon) — Immutable audit trail for compliance.
+7. Monitoring (CloudWatch) — Tracks system performance and uptime
 ---
 ```markdown
 ![AWS](https://img.shields.io/badge/Cloud-AWS-orange?style=for-the-badge&logo=amazonaws)
@@ -81,28 +119,19 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-###3️⃣ Add Environment Variables(.env)
 # ==============================================
 # 🌐 TwinOps.AI - Environment Configuration
 # ==============================================
 
 # ---- AWS CONFIGURATION ----
-# Your AWS region and S3 bucket names
-AWS_REGION=us-east-2
-TWINOPS_S3_BUCKET=twinops-logs
-TWINOPS_FRONTEND_BUCKET=twinops-frontend
+AWS_REGION=us-east-1
+TWINOPS_S3_BUCKET=twinops-logs-ruchi123
+TWINOPS_FRONTEND_BUCKET=twinops-frontend-ruchi123
 
 # ---- BLOCKCHAIN CONFIGURATION ----
-# Polygon Mumbai RPC (Infura or Alchemy endpoint)
-POLYGON_RPC=https://polygon-mumbai.infura.io/v3/
-
-# Your wallet private key (⚠️ DO NOT SHARE or push .env)
-WALLET_PRIVATE_KEY=0x<YOUR_WALLET_PRIVATE_KEY>
-
-# The deployed contract address on Polygon Mumbai
+POLYGON_RPC=https://polygon-mumbai.infura.io/v3/3a9xYzYourInfuraKeyHere
+WALLET_PRIVATE_KEY=0x<YOUR_PRIVATE_KEY_DO_NOT_PUSH>
 CONTRACT_ADDRESS=0xAbCdEf1234567890abcdef1234567890abcdef12
-
-# Relative path to your ABI file
 CONTRACT_ABI_PATH=backend/abi.json
 
 # ---- DATA PATHS ----
@@ -110,14 +139,14 @@ TECH_CSV=data/technicians.csv
 TASK_CSV=data/tasks.csv
 
 # ---- OPTIONAL AI / LLM CONFIG ----
-# If using Gemini/OpenAI in the agent layer
-GEMINI_API_KEY=<YOUR_GEMINI_API_KEY Not to push
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>     # optional, only if agent uses OpenAI
+GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>     # optional, only if agent uses Gemini
 
 # ==============================================
 # ⚠️ IMPORTANT NOTES:
-# 1️⃣ Do NOT commit this file as `.env` — keep it local.
-# 2️⃣ Create a copy `.env` with your real keys for running.
-# 3️⃣ This `.env.example` is safe to share publicly.
+# 1️⃣ Do NOT commit your real `.env` file.
+# 2️⃣ Keep your private keys (wallet, API) local only.
+# 3️⃣ This `.env.example` is safe to upload publicly.
 # ==============================================
 
 
